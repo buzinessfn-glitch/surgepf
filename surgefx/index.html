@@ -153,7 +153,7 @@
         }
 
         .client-slider-container {
-            max-width: 800px; /* Smaller Frame so you don't see repeats */
+            max-width: 800px; 
             margin: 0 auto;
             overflow: hidden;
             position: relative;
@@ -175,7 +175,7 @@
         }
 
         .client-card {
-            width: 220px; /* Slightly narrower */
+            width: 220px; 
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             margin: 0 15px;
@@ -427,26 +427,26 @@
 
     <script>
         const clients = [
-            { name: '@Prismfnr', occupation: 'Pro Player', desc: 'Incredible speed and professional communication.', pfp: 'SetImages/prismpfp.jpg', link: 'https://x.com/prismfnr' },
-            { name: '@skyszn', occupation: 'SCROLLS duo', desc: 'Surge delivered exactly what I needed.', pfp: 'SetImages/skysznpfp.jpg', link: 'https://x.com/SkySZN_' },
-            { name: '@kirillianfnx', occupation: 'Pro Player', desc: 'One of the best editors in the scene right now.', pfp: 'SetImages/kirillianpfp.jpg', link: 'https://x.com/kirillianfnx' },
-            { name: '@Joshreyli', occupation: 'Pro Player', desc: 'Consistently high quality work every single time.', pfp: 'SetImages/joshreylipfp.jpg', link: 'https://x.com/Joshreyli' },
-            { name: '70+ More', occupation: 'Community', desc: 'Join the list of satisfied clients.', pfp: 'SetImages/andmorepfp.jpg', link: '#' }
+            { name: '@Prismfnr', occupation: 'Pro Player', desc: 'Incredible speed and professional communication.', pfp: 'Images/prismpfp.jpg', link: 'https://x.com/prismfnr' },
+            { name: '@skyszn', occupation: 'SCROLLS duo', desc: 'Surge delivered exactly what I needed.', pfp: 'Images/skysznpfp.jpg', link: 'https://x.com/SkySZN_' },
+            { name: '@kirillianfnx', occupation: 'Pro Player', desc: 'One of the best editors in the scene right now.', pfp: 'Images/kirillianpfp.jpg', link: 'https://x.com/kirillianfnx' },
+            { name: '@Joshreyli', occupation: 'Pro Player', desc: 'Consistently high quality work every single time.', pfp: 'Images/joshreylipfp.jpg', link: 'https://x.com/Joshreyli' },
+            { name: '70+ More', occupation: 'Community', desc: 'Join the list of satisfied clients.', pfp: 'Images/andmorepfp.jpg', link: '#' }
         ];
 
         const reviews = [
-            { name: '@Fraanticc', occ: 'Female Fortnite Player', stars: 5, text: "Honestly blown away by the creativity. The design feels alive and matches my feel perfectly.", pfp: 'SetImages/fraanticpfp.jpg', link: 'https://x.com/Fraanticc' },
-            { name: '@higgs', occ: 'Pro Player', stars: 5, text: "Cleanest thumbnails in the game. SurgeFX knows exactly how to capture attention.", pfp: 'SetImages/higgspfp.jpg', link: 'https://x.com/BatmanBugha' },
-            { name: '@200Pxmp', occ: 'Pro Player', stars: 5, text: "Professional quality that actually stands out. The turnaround time was insane.", pfp: 'SetImages/pxmppfp.jpg', link: 'https://x.com/200_PXMP' },
-            { name: '@Tjino9', occ: 'Pro Player', stars: 5, text: "Unique style that you don't see everyday. Super easy to work with.", pfp: 'SetImages/tjinopfp.jpg', link: 'https://x.com/Tjino9' }
+            { name: '@Fraanticc', occ: 'Female Fortnite Player', stars: 5, text: "Honestly blown away by the creativity. The design feels alive and matches my feel perfectly.", pfp: 'Images/fraanticpfp.jpg', link: 'https://x.com/Fraanticc' },
+            { name: '@higgs', occ: 'Pro Player', stars: 5, text: "Cleanest thumbnails in the game. SurgeFX knows exactly how to capture attention.", pfp: 'Images/higgspfp.jpg', link: 'https://x.com/BatmanBugha' },
+            { name: '@200Pxmp', occ: 'Pro Player', stars: 5, text: "Professional quality that actually stands out. The turnaround time was insane.", pfp: 'Images/pxmppfp.jpg', link: 'https://x.com/200_PXMP' },
+            { name: '@Tjino9', occ: 'Pro Player', stars: 5, text: "Unique style that you don't see everyday. Super easy to work with.", pfp: 'Images/tjinopfp.jpg', link: 'https://x.com/Tjino9' }
         ];
 
         const workImages = [
-            'WorkImages/surgework1.jpg', 'WorkImages/surgework2.jpg', 
-            'WorkImages/surgework3.jpg', 'WorkImages/surgework4.jpg',
-            'WorkImages/surgework5.jpg', 'WorkImages/surgework6.jpg',
-            'WorkImages/surgework7.jpg', 'WorkImages/surgework8.jpg',
-            'WorkImages/surgework9.jpg', 'WorkImages/surgework10.jpg'
+            'Images/surgework1.jpg', 'Images/surgework2.jpg', 
+            'Images/surgework3.jpg', 'Images/surgework4.jpg',
+            'Images/surgework5.jpg', 'Images/surgework6.jpg',
+            'Images/surgework7.jpg', 'Images/surgework8.jpg',
+            'Images/surgework9.jpg', 'Images/surgework10.jpg'
         ];
 
         // --- CURSOR LOGIC ---
@@ -466,7 +466,7 @@
         const overlay = document.getElementById('popup-overlay');
         
         function fillClients() {
-            const list = [...clients, ...clients, ...clients]; // Triple for smoother loop
+            const list = [...clients, ...clients, ...clients]; 
             list.forEach(c => {
                 const card = document.createElement('div');
                 card.className = 'client-card';
@@ -543,4 +543,3 @@
     </script>
 </body>
 </html>
-
