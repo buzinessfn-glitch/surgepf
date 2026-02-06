@@ -382,9 +382,10 @@
 
     <script>
         // --- 1. DATA CONFIGURATION ---
+        // All extensions set to .jpg as requested.
         const clients = [
             { name: '@Prismfnr', occupation: 'Pro Player', desc: 'Incredible speed and professional communication.', pfp: 'SetImages/prismpfp.jpg', link: 'https://x.com/prismfnr' },
-            { name: '@skyszn', occupation: 'SCROLLS duo', desc: 'Surge delivered exactly what I needed.', pfp: 'SetImages/skyszn.jpg', link: 'https://x.com/SkySZN_' },
+            { name: '@skyszn', occupation: 'SCROLLS duo', desc: 'Surge delivered exactly what I needed.', pfp: 'SetImages/skysznpfp.jpg', link: 'https://x.com/SkySZN_' },
             { name: '@kirillianfnx', occupation: 'Pro Player', desc: 'One of the best editors in the scene right now.', pfp: 'SetImages/kirillianpfp.jpg', link: 'https://x.com/kirillianfnx' },
             { name: '@Joshreyli', occupation: 'Pro Player', desc: 'Consistently high quality work every single time.', pfp: 'SetImages/joshreylipfp.jpg', link: 'https://x.com/Joshreyli' },
             { name: '70+ More', occupation: 'Community', desc: 'Join the list of satisfied clients.', pfp: 'SetImages/andmorepfp.jpg', link: '#' }
@@ -398,11 +399,13 @@
             { name: '@Tjino9', occ: 'Pro Player', stars: 5, text: "Unique style that you don't see everyday. Super easy to work with and understood the assignment immediately.", pfp: 'SetImages/tjinopfp.jpg', link: 'https://x.com/Tjino9' }
         ];
 
-        // ADD YOUR WORK IMAGE NAMES HERE
+        // ADDED ALL 10 IMAGES HERE WITH .JPG EXTENSION
         const workImages = [
             'WorkImages/surgework1.jpg', 'WorkImages/surgework2.jpg', 
             'WorkImages/surgework3.jpg', 'WorkImages/surgework4.jpg',
-            'WorkImages/surgework5.jpg', 'WorkImages/surgework6.jpg'
+            'WorkImages/surgework5.jpg', 'WorkImages/surgework6.jpg',
+            'WorkImages/surgework7.jpg', 'WorkImages/surgework8.jpg',
+            'WorkImages/surgework9.jpg', 'WorkImages/surgework10.jpg'
         ];
 
         // --- 2. CURSOR LOGIC ---
@@ -453,6 +456,7 @@
         workImages.forEach(imgSrc => {
             const div = document.createElement('div');
             div.className = 'work-item';
+            // Added error handling to keep gallery clean if an image is missing
             div.innerHTML = `<img src="${imgSrc}" onerror="this.parentElement.style.display='none'">`;
             workGallery.appendChild(div);
         });
@@ -496,4 +500,3 @@
     </script>
 </body>
 </html>
-
