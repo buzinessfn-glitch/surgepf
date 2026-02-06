@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SurgeFX | Portfolio</title>
+    <title>SurgeFX | Creative Portfolio</title>
     <style>
         /* --- MODERN DARK THEME VARIABLES --- */
         :root {
@@ -22,7 +22,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none; /* Hide real cursor for the custom one */
+            cursor: none; 
         }
 
         html {
@@ -72,14 +72,14 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            gap: 3rem;
+            gap: 2.5rem;
         }
 
         nav a {
             color: var(--text-dim);
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             transition: 0.3s;
@@ -104,7 +104,7 @@
             font-size: 8rem;
             font-weight: 900;
             background: linear-gradient(to bottom, #fff 30%, var(--accent-blue));
-            background-clip: text;
+            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
             letter-spacing: -5px;
@@ -146,23 +146,25 @@
             color: var(--light-blue);
         }
 
-        /* --- CLIENTS LOOP (The Slider) --- */
+        /* --- CLIENTS LOOP (Fixed Frame) --- */
         #clients {
             padding: 100px 0;
             background: #080808;
         }
 
         .client-slider-container {
-            width: 100%;
+            max-width: 800px; /* Smaller Frame so you don't see repeats */
+            margin: 0 auto;
             overflow: hidden;
             position: relative;
             padding: 50px 0;
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
         }
 
         .client-track {
             display: flex;
             width: max-content;
-            animation: scrollLoop 40s linear infinite;
+            animation: scrollLoop 25s linear infinite;
         }
 
         .client-track:hover { animation-play-state: paused; }
@@ -173,23 +175,58 @@
         }
 
         .client-card {
-            width: 280px;
+            width: 220px; /* Slightly narrower */
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             margin: 0 15px;
-            padding: 30px;
+            padding: 25px;
             border-radius: 15px;
             text-align: center;
             transition: 0.3s;
         }
 
         .client-card img {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             margin-bottom: 15px;
             border: 2px solid var(--accent-blue);
             object-fit: cover;
+        }
+
+        /* --- PRICING SECTION --- */
+        #pricing {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+            border: 1px solid var(--card-border);
+            padding: 50px 40px;
+            border-radius: 24px;
+            width: 300px;
+            transition: 0.3s;
+        }
+
+        .price-card:hover {
+            border-color: var(--accent-blue);
+            transform: scale(1.02);
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--light-blue);
+            margin: 20px 0;
         }
 
         /* --- POPUP --- */
@@ -246,8 +283,6 @@
             transition: 0.5s;
         }
 
-        .work-item:hover img { transform: scale(1.1); }
-
         /* --- REVIEWS --- */
         #reviews { padding: 100px 20px; }
         
@@ -267,23 +302,16 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            transition: 0.3s;
-        }
-
-        .review-card:hover {
-            border-color: var(--light-blue);
-            background: rgba(255, 255, 255, 0.05);
         }
 
         .review-pfp { width: 70px; height: 70px; border-radius: 50%; border: 2px solid var(--accent-blue); }
-
         .stars { color: #ffcc00; font-size: 1.2rem; }
 
         /* --- BUTTONS --- */
         .btn-modern {
             display: inline-block;
             margin-top: 15px;
-            padding: 12px 25px;
+            padding: 12px 30px;
             background: var(--accent-blue);
             color: white;
             text-decoration: none;
@@ -292,6 +320,7 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             transition: 0.3s;
+            border: none;
         }
 
         .btn-modern:hover {
@@ -300,7 +329,6 @@
             transform: translateY(-3px);
         }
 
-        /* --- SCROLL REVEAL --- */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -325,6 +353,7 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#experience">Experience</a></li>
             <li><a href="#clients">Clients</a></li>
+            <li><a href="#pricing">Pricing</a></li>
             <li><a href="#my-work">Work</a></li>
             <li><a href="#reviews">Reviews</a></li>
         </ul>
@@ -332,7 +361,8 @@
 
     <section id="home">
         <h1 class="hero-title">SurgeFX</h1>
-        <p style="color: var(--light-blue); letter-spacing: 5px; font-weight: bold;">You ask, I deliver.</p>
+        <p style="color: var(--light-blue); letter-spacing: 5px; font-weight: bold; margin-bottom: 20px;">You ask, I deliver.</p>
+        <a href="https://x.com/surgepsd" target="_blank" class="btn-modern">Contact Me</a>
     </section>
 
     <section id="experience" class="reveal">
@@ -352,21 +382,36 @@
     <section id="clients">
         <h2 style="text-align: center;">TRUSTED BY</h2>
         <div class="client-slider-container">
-            <div class="client-track" id="client-track">
-                </div>
+            <div class="client-track" id="client-track"></div>
+        </div>
+    </section>
+
+    <section id="pricing" class="reveal">
+        <h2>PRICING</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>HEADER</h3>
+                <div class="price-tag">$7</div>
+                <p style="color: var(--text-dim)">Professional twitter/social headers tailored to your brand.</p>
+                <a href="https://x.com/surgepsd" target="_blank" class="btn-modern">Order Now</a>
+            </div>
+            <div class="price-card">
+                <h3>THUMBNAIL</h3>
+                <div class="price-tag">$10</div>
+                <p style="color: var(--text-dim)">High-CTR thumbnails designed to make your videos viral.</p>
+                <a href="https://x.com/surgepsd" target="_blank" class="btn-modern">Order Now</a>
+            </div>
         </div>
     </section>
 
     <section id="my-work" class="reveal">
         <h2>MY WORK</h2>
-        <div class="work-frame" id="work-gallery">
-            </div>
+        <div class="work-frame" id="work-gallery"></div>
     </section>
 
     <section id="reviews" class="reveal">
         <h2 style="text-align: center; margin-bottom: 40px;">CLIENT FEEDBACK</h2>
-        <div class="reviews-container" id="reviews-container">
-            </div>
+        <div class="reviews-container" id="reviews-container"></div>
     </section>
 
     <div class="popup-overlay" id="popup-overlay">
@@ -381,51 +426,47 @@
     </div>
 
     <script>
-        // --- 1. DATA CONFIGURATION ---
-const clients = [
-    { name: '@Prismfnr', occupation: 'Pro Player', desc: 'Incredible speed and professional communication.', pfp: 'SetImages/prismpfp.jpg', link: 'https://x.com/prismfnr' },
-    { name: '@skyszn', occupation: 'SCROLLS duo', desc: 'Surge delivered exactly what I needed.', pfp: 'SetImages/skysznpfp.jpg', link: 'https://x.com/SkySZN_' },
-    { name: '@kirillianfnx', occupation: 'Pro Player', desc: 'One of the best editors in the scene right now.', pfp: 'SetImages/kirillianpfp.jpg', link: 'https://x.com/kirillianfnx' },
-    { name: '@Joshreyli', occupation: 'Pro Player', desc: 'Consistently high quality work every single time.', pfp: 'SetImages/joshreylipfp.jpg', link: 'https://x.com/Joshreyli' },
-    { name: '70+ More', occupation: 'Community', desc: 'Join the list of satisfied clients.', pfp: 'SetImages/andmorepfp.jpg', link: '#' }
-];
+        const clients = [
+            { name: '@Prismfnr', occupation: 'Pro Player', desc: 'Incredible speed and professional communication.', pfp: 'SetImages/prismpfp.jpg', link: 'https://x.com/prismfnr' },
+            { name: '@skyszn', occupation: 'SCROLLS duo', desc: 'Surge delivered exactly what I needed.', pfp: 'SetImages/skysznpfp.jpg', link: 'https://x.com/SkySZN_' },
+            { name: '@kirillianfnx', occupation: 'Pro Player', desc: 'One of the best editors in the scene right now.', pfp: 'SetImages/kirillianpfp.jpg', link: 'https://x.com/kirillianfnx' },
+            { name: '@Joshreyli', occupation: 'Pro Player', desc: 'Consistently high quality work every single time.', pfp: 'SetImages/joshreylipfp.jpg', link: 'https://x.com/Joshreyli' },
+            { name: '70+ More', occupation: 'Community', desc: 'Join the list of satisfied clients.', pfp: 'SetImages/andmorepfp.jpg', link: '#' }
+        ];
 
-const reviews = [
-    { name: '@Fraanticc', occ: 'Female Fortnite Player', stars: 5, text: "Honestly blown away by the creativity. The design feels alive and matches my feel perfectly. Super fast too!", pfp: 'SetImages/fraanticpfp.jpg', link: 'https://x.com/Fraanticc' },
-    { name: '@higgs', occ: 'Pro Player', stars: 5, text: "Cleanest thumbnails in the game. SurgeFX knows exactly how to capture attention. 10/10 recommend.", pfp: 'SetImages/higgspfp.jpg', link: 'https://x.com/BatmanBugha' },
-    { name: '@200Pxmp', occ: 'Pro Player', stars: 5, text: "Professional quality that actually stands out. The turnaround time was insane for this level of detail.", pfp: 'SetImages/pxmppfp.jpg', link: 'https://x.com/200_PXMP' },
-    { name: '@Joshreyli', occ: 'Upcoming Prodigy', stars: 5, text: "Exactly what I asked for, but better. The work is top tier. Def working together again.", pfp: 'SetImages/joshreylipfp.jpg', link: 'https://x.com/Joshreyli' },
-    { name: '@Tjino9', occ: 'Pro Player', stars: 5, text: "Unique style that you don't see everyday. Super easy to work with and understood the assignment immediately.", pfp: 'SetImages/tjinopfp.jpg', link: 'https://x.com/Tjino9' }
-];
+        const reviews = [
+            { name: '@Fraanticc', occ: 'Female Fortnite Player', stars: 5, text: "Honestly blown away by the creativity. The design feels alive and matches my feel perfectly.", pfp: 'SetImages/fraanticpfp.jpg', link: 'https://x.com/Fraanticc' },
+            { name: '@higgs', occ: 'Pro Player', stars: 5, text: "Cleanest thumbnails in the game. SurgeFX knows exactly how to capture attention.", pfp: 'SetImages/higgspfp.jpg', link: 'https://x.com/BatmanBugha' },
+            { name: '@200Pxmp', occ: 'Pro Player', stars: 5, text: "Professional quality that actually stands out. The turnaround time was insane.", pfp: 'SetImages/pxmppfp.jpg', link: 'https://x.com/200_PXMP' },
+            { name: '@Tjino9', occ: 'Pro Player', stars: 5, text: "Unique style that you don't see everyday. Super easy to work with.", pfp: 'SetImages/tjinopfp.jpg', link: 'https://x.com/Tjino9' }
+        ];
 
-// All 10 work images forced to .jpg
-const workImages = [
-    'WorkImages/surgework1.jpg', 'WorkImages/surgework2.jpg', 
-    'WorkImages/surgework3.jpg', 'WorkImages/surgework4.jpg',
-    'WorkImages/surgework5.jpg', 'WorkImages/surgework6.jpg',
-    'WorkImages/surgework7.jpg', 'WorkImages/surgework8.jpg',
-    'WorkImages/surgework9.jpg', 'WorkImages/surgework10.jpg'
-];
+        const workImages = [
+            'WorkImages/surgework1.jpg', 'WorkImages/surgework2.jpg', 
+            'WorkImages/surgework3.jpg', 'WorkImages/surgework4.jpg',
+            'WorkImages/surgework5.jpg', 'WorkImages/surgework6.jpg',
+            'WorkImages/surgework7.jpg', 'WorkImages/surgework8.jpg',
+            'WorkImages/surgework9.jpg', 'WorkImages/surgework10.jpg'
+        ];
 
-        // --- 2. CURSOR LOGIC ---
+        // --- CURSOR LOGIC ---
         const cursor = document.getElementById('custom-cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
 
-        document.querySelectorAll('a, .client-card, .btn-modern').forEach(el => {
+        document.querySelectorAll('a, .client-card, .btn-modern, .price-card').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
         });
 
-        // --- 3. POPULATE CLIENTS ---
+        // --- POPULATE CLIENTS ---
         const track = document.getElementById('client-track');
         const overlay = document.getElementById('popup-overlay');
         
         function fillClients() {
-            // Repeat twice for infinite loop
-            const list = [...clients, ...clients];
+            const list = [...clients, ...clients, ...clients]; // Triple for smoother loop
             list.forEach(c => {
                 const card = document.createElement('div');
                 card.className = 'client-card';
@@ -450,24 +491,22 @@ const workImages = [
 
         document.getElementById('close-popup').onclick = () => overlay.style.display = 'none';
 
-        // --- 4. POPULATE WORK ---
-const workGallery = document.getElementById('work-gallery');
-workImages.forEach(imgSrc => {
-    const div = document.createElement('div');
-    div.className = 'work-item';
-    const img = document.createElement('img');
-    img.src = imgSrc;
-    
-    // Debugging: If the image fails, it shows the path in the console
-    img.onerror = function() {
-        console.error("Could not find image at: " + imgSrc);
-        this.parentElement.style.display = 'none'; // Hide if missing
-    };
-    
-    div.appendChild(img);
-    workGallery.appendChild(div);
-});
-        // --- 5. POPULATE REVIEWS ---
+        // --- POPULATE WORK ---
+        const workGallery = document.getElementById('work-gallery');
+        workImages.forEach(imgSrc => {
+            const div = document.createElement('div');
+            div.className = 'work-item';
+            const img = document.createElement('img');
+            img.src = imgSrc;
+            img.onerror = function() {
+                console.error("Missing: " + imgSrc);
+                this.parentElement.style.display = 'none';
+            };
+            div.appendChild(img);
+            workGallery.appendChild(div);
+        });
+
+        // --- POPULATE REVIEWS ---
         const revContainer = document.getElementById('reviews-container');
         reviews.forEach(r => {
             const div = document.createElement('div');
@@ -481,20 +520,18 @@ workImages.forEach(imgSrc => {
                     </div>
                     <p style="font-size:0.8rem; color:var(--text-dim); margin-bottom:8px;">${r.occ}</p>
                     <p style="font-size:0.95rem;">"${r.text}"</p>
-                    <a href="${r.link}" target="_blank" class="btn-modern" style="padding: 5px 15px; font-size:0.6rem;">Check it out</a>
                 </div>
             `;
             revContainer.appendChild(div);
         });
 
-        // --- 6. SCROLL REVEAL LOGIC ---
+        // --- SCROLL REVEAL ---
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 100) {
                     reveals[i].classList.add("active");
                 }
             }
@@ -502,8 +539,7 @@ workImages.forEach(imgSrc => {
 
         window.addEventListener("scroll", reveal);
         fillClients();
-        reveal(); // Run once on load
+        reveal();
     </script>
 </body>
 </html>
-
