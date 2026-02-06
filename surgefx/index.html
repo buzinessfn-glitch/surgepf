@@ -470,11 +470,13 @@
             list.forEach(c => {
                 const card = document.createElement('div');
                 card.className = 'client-card';
-                card.innerHTML = `
-                    <img src="${c.pfp}" onerror="this.src='https://via.placeholder.com/80/111/fff?text=User'">
-                    <h4 style="color:var(--light-blue)">${c.name}</h4>
-                    <p style="font-size:0.7rem; color:var(--text-dim)">${c.occupation}</p>
-                `;
+                // Change your current onerror logic in the template strings to this:
+// It checks if the placeholder has already failed to prevent loops.
+card.innerHTML = `
+    <img src="${c.pfp}" onerror="if (this.src != 'https://via.placeholder.com/80/111/fff?text=User') { this.src='https://via.placeholder.com/80/111/fff?text=User'; } else { this.style.display='none'; }">
+    <h4 style="color:var(--light-blue)">${c.name}</h4>
+    <p style="font-size:0.7rem; color:var(--text-dim)">${c.occupation}</p>
+`;
                 card.onclick = () => showPopup(c);
                 track.appendChild(card);
             });
@@ -544,3 +546,4 @@
 </body>
 
 </html>
+
